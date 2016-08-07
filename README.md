@@ -14,4 +14,3 @@ Decrypts the diary and writes its content to standard output
 
 #Dependencies
 gpg
-bash or zsh (for now, should work with any POSIX compatible shell soon)
