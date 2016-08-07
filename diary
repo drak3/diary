@@ -22,6 +22,7 @@ gpg -q --passphrase "$password" --output "$tmp_dec" --decrypt --yes "$DIARY"
 
 until [  $? -eq 0 ]
 do
+#TODO: make this POSIX compliant
     read -s -p "Password: " password
     gpg -q --passphrase "$password" --output "$tmp_dec" --decrypt --yes "$DIARY"
 done
