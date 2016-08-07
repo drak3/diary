@@ -9,12 +9,16 @@ fi
 
 tmp_dec=`mktemp`
 
-#NOTE: not really secure on multiuser, but this script is not built for hard security anyway...
-read -s -p "Password: " password
+stty -echo
+printf "Password: "
+read PASSWORD
+stty echo
+printf "\n"
 
 if [ ! -f $DIARY ]
 then
     echo "Creating Diary"
+    #NOTE: not really secure on multiuser, since we pass the password as an argument, but this script is not built for hard security anyway...
     gpg -q --passphrase "$password" --output "$DIARY" --symmetric --yes "$tmp_dec"
 fi
 
@@ -28,6 +32,7 @@ do
     read PASSWORD
     stty echo
     printf "\n"
+    #NOTE: not really secure on multiuser, see note above
     gpg -q --passphrase "$password" --output "$tmp_dec" --decrypt --yes "$DIARY"
 done
 

@@ -14,3 +14,9 @@ Decrypts the diary and writes its content to standard output
 
 #Dependencies
 gpg
+
+#Security
+This is designed to protect the diary from casual snooping and assumes that it runs on a single user system that the diary keeper trusts and controls completely.
+Also, the diary is not signed so there is no protection against data tampering.
+
+Do not use this for sensitive information, unless you understand _exactly_ what these scripts are doing.
